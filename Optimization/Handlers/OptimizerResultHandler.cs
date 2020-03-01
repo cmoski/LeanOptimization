@@ -153,7 +153,7 @@ namespace Optimization
                 var alphaRuntimeStatistics = (AlphaRuntimeStatistics)_shadowType.GetProperty("AlphaRuntimeStatistics", _flags).GetValue(_shadow);
 
                 var result = new BacktestResultPacket(job,
-                    new BacktestResult(charts, orders, profitLoss, statisticsResults.Summary, runtime, statisticsResults.RollingPerformances, statisticsResults.TotalPerformance)
+                    new BacktestResult(new BacktestResultParameters(charts, orders, profitLoss, statisticsResults.Summary, runtime, statisticsResults.RollingPerformances, statisticsResults.TotalPerformance))
                     { AlphaRuntimeStatistics = alphaRuntimeStatistics }, Algorithm.EndDate, Algorithm.StartDate)
                 {
                     ProcessingTime = (DateTime.UtcNow - startTime).TotalSeconds,
